@@ -819,6 +819,15 @@ set(pcsx2DEV9Headers
 	DEV9/smap.h
 	DEV9/sockets.h
 )
+if(ORE)
+	list(APPEND pcsx2CDVDSources CDVD/cdvd_ore.c)
+	target_compile_definitions(PCSX2_FLAGS INTERFACE HAVE_ORE)
+	target_include_directories(PCSX2_FLAGS INTERFACE "${SMELT_DIR}/include")
+	# shortcut: the system libraries a Rust staticlib needs on Linux
+	# (rustc --print native-static-libs); other platforms need theirs
+	target_link_libraries(PCSX2_FLAGS INTERFACE "${SMELT_DIR}/target/release/libsmelt.a" pthread dl m rt util)
+endif()
+
 if(PCAP)
 	list(APPEND pcsx2DEV9Sources DEV9/pcap_io.c)
 	target_compile_definitions(PCSX2_FLAGS INTERFACE HAVE_PCAP)

@@ -57,7 +57,7 @@ DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 ROOT=$(CDPATH= cd -- "$DIR/../.." && pwd)
 INC="-I$ROOT -I$ROOT/pcsx2 -I$ROOT/pcsx2/x86 -I$ROOT/common -I$ROOT/common/include"
 INC="$INC -I$ROOT/libretro/libretro-common/include -I$ROOT/3rdparty -I$ROOT/3rdparty/include"
-SKIP='parallel-gs|Granite|DX11|DX12|OpenGL|Vulkan|uwp|pcap_io'
+SKIP='parallel-gs|Granite|DX11|DX12|OpenGL|Vulkan|uwp|pcap_io|cdvd_ore'
 CFLAGS="-std=gnu89 -DNDEBUG -Wno-comment -Werror=declaration-after-statement -Werror=implicit-function-declaration"
 CXXFLAGS="-std=c++17 -DNDEBUG -DPCSX2_CORE"
 A64=aarch64-linux-gnu-gcc

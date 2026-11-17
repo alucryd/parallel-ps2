@@ -231,6 +231,10 @@ cdvd_reader_t* cdvd_reader_open(const char* path,
 
 	if (string_is_equal_noncase(ext, "chd"))
 		r = cdvd_chd_new();
+#ifdef HAVE_ORE
+	else if (string_is_equal_noncase(ext, "ore"))
+		r = cdvd_ore_new();
+#endif
 	else if (string_is_equal_noncase(ext, "cso") || string_is_equal_noncase(ext, "zso"))
 		r = cdvd_cso_new();
 	else if (string_is_equal_noncase(ext, "gz"))

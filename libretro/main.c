@@ -1840,7 +1840,11 @@ void retro_get_system_info(struct retro_system_info* info)
 	/* the version is checked by retroachievements, it should be semver */
 	info->library_version  = "v2.0.0-" GIT_VERSION;
 	info->library_name     = "ParaLLEl PS2";
+#ifdef HAVE_ORE
+	info->valid_extensions = "elf|iso|ciso|cue|gz|chd|ore|cso|zso|m3u|py1|py2";
+#else
 	info->valid_extensions = "elf|iso|ciso|cue|gz|chd|cso|zso|m3u|py1|py2";
+#endif
 	info->need_fullpath    = true;
 	info->block_extract    = true;
 }

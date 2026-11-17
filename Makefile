@@ -5,6 +5,7 @@ GLES = 0
 GLES3 = 0 # HW renderer now supported on GLES3
 HAVE_VULKAN = 1
 HAVE_CHD = 1
+HAVE_ORE = 0
 HAVE_PCAP = 0
 HAVE_CDROM = 0
 LINK_STATIC_LIBCPLUSPLUS = 1
@@ -568,6 +569,17 @@ XE_AB ?= 0
 ifeq ($(HAVE_PCAP), 1)
    FLAGS   += -DHAVE_PCAP
    LDFLAGS += -lpcap
+endif
+
+# ORE images, oxyromon's disc format, are read through libsmelt, a Rust
+# static library: HAVE_ORE=1 SMELT_DIR=<oxyromon>/crates/smelt-rs, built
+# there first with `cargo build --release`.
+ifeq ($(HAVE_ORE), 1)
+   SMELT_LIB ?= $(SMELT_DIR)/target/release/libsmelt.a
+   FLAGS   += -DHAVE_ORE -I$(SMELT_DIR)/include
+   # shortcut: the system libraries a Rust staticlib needs on Linux
+   # (rustc --print native-static-libs); other platforms need theirs
+   LDFLAGS += $(SMELT_LIB) -lpthread -ldl -lm -lrt -lutil
 endif
 
 include Makefile.common

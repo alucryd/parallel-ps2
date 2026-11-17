@@ -12,6 +12,7 @@ endif()
 
 # Project Name
 project(Pcsx2)
+option(ORE "Read ORE images through libsmelt; set SMELT_DIR to oxyromon's crates/smelt-rs, built with cargo build --release" OFF)
 option(PCAP "Build the libpcap ethernet backend for DEV9 (hard-links libpcap on POSIX)" OFF)
 option(C89_EMITTER "Emit through the C89 macro core (header-only); OFF builds the C++ reference emitter instead" ON)
 option(XE_AB "Shadow-compare verification: every converted emission is byte-checked against the C++ twin at the same address (verification builds only)" OFF)

@@ -141,6 +141,7 @@ SOURCES_C += \
 	$(LRPS2_DIR)/CDVD/cdvd_flat.c \
 	$(LRPS2_DIR)/CDVD/cdvd_cso.c \
 	$(LRPS2_DIR)/CDVD/cdvd_chd.c \
+	$(if $(filter 1,$(HAVE_ORE)),$(LRPS2_DIR)/CDVD/cdvd_ore.c) \
 	$(LRPS2_DIR)/CDVD/cdvd_gz.c \
 	$(LRPS2_DIR)/CDVD/cdvd_iso.c \
 	$(LRPS2_DIR)/CDVD/CDVD.c \

@@ -149,6 +149,10 @@ void cdvd_reader_drop_cache(cdvd_reader_t* r);
 cdvd_reader_t* cdvd_flat_new(void);
 cdvd_reader_t* cdvd_cso_new(void);
 cdvd_reader_t* cdvd_chd_new(void);
+#ifdef HAVE_ORE
+/* An ORE, oxyromon's disc format, through libsmelt. */
+cdvd_reader_t* cdvd_ore_new(void);
+#endif
 cdvd_reader_t* cdvd_gz_new(const char* index_template, const char* data_root);
 
 #ifdef __cplusplus

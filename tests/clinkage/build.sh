@@ -58,7 +58,7 @@ DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 ROOT=$(CDPATH= cd -- "$DIR/../.." && pwd)
 INC="-I$ROOT -I$ROOT/pcsx2 -I$ROOT/pcsx2/x86 -I$ROOT/common -I$ROOT/common/include"
 INC="$INC -I$ROOT/3rdparty -I$ROOT/3rdparty/include -I$ROOT/libretro/libretro-common/include"
-SKIP='parallel-gs|Granite|DX11|DX12|OpenGL|Vulkan|uwp|pcap_io'
+SKIP='parallel-gs|Granite|DX11|DX12|OpenGL|Vulkan|uwp|pcap_io|cdvd_ore'
 JOBS=${JOBS:-8}
 
 TMP=${TMPDIR:-/tmp}/clinkage.$$
